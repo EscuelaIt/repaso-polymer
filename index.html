@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ej 1</title>
+
+  
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <link rel="import" href="components/hi-polymer.html">
+  <link rel="import" href="components/modal-message.html">
+  <link rel="import" href="components/hora-actual.html">
+  <link rel="import" href="components/reloj-actual.html">
+  <link rel="import" href="components/oferta-dia.html">
+  
+</head>
+<body>
+  <hi-polymer></hi-polymer>
+  <modal-message msg="Hola mensaje" id="modal"></modal-message>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, repudiandae. Repellat ipsam placeat eum dolor natus non unde ullam! Officiis delectus, perspiciatis natus dignissimos pariatur tenetur sed itaque repellat inventore.</p>
+
+  <hora-actual></hora-actual>
+  <reloj-actual id="reloj"></reloj-actual>
+  <reloj-actual id="reloj"></reloj-actual>
+  <reloj-actual id="reloj"></reloj-actual>
+
+  <oferta-del-dia>
+    <div class="titulo">Patatas fritas congeladas</div>
+    <div class="descripcion">La oferta del día consiste en un 2x1 de patatas.</div>
+    <div class="precio">2 euros</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, eum, consectetur. Accusamus iure recusandae perspiciatis libero dolore sunt non porro ad repudiandae, exercitationem beatae autem minima sapiente? Odio, consequuntur, quod!</p>
+  </oferta-del-dia>
+
+  <script>
+    var el = document.createElement('hi-polymer');
+    document.body.appendChild(el);
+
+    var modal = document.getElementById('modal')
+    modal.msg = "msg asignado de manera imperativa"
+    //modal.hide()
+
+    var reloj = document.getElementById('reloj')
+    console.log(reloj)
+    reloj.addEventListener('click', function() {
+      console.log('Elimino el elemento del DOM...')
+      document.body.removeChild(reloj);
+    })
+  </script>
+</body>
+</html>

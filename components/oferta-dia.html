@@ -1,0 +1,24 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="oferta-del-dia">
+  <template>
+    <style>
+      :host {
+        display: block;
+        font-family: sans-serif;
+      }
+      h2 {
+        color: #933;
+      }
+    </style>
+    <h1><content select=".titulo"></content></h1>
+    <h2><content select=".descripcion"></content></h2>
+    <p>Precio: <content select=".precio"></content></p>
+  </template>
+  <script>
+    Polymer({
+      is: 'oferta-del-dia'
+    });
+  </script>
+</dom-module>

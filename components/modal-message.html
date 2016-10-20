@@ -1,0 +1,62 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="modal-message">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        position: absolute;
+        top:0;
+        left:50vw;
+        width: 50vw;
+        height: 100vh;
+        justify-content: space-around;
+        align-items: center;
+        font-family: sans-serif;
+        background-color: #f5f5f5;
+      }
+      p{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        align-content: space-around;
+        width: 200px;
+        height: 100px;
+        background-color: #f0f0c0;
+        text-align: center;
+        padding: 1em;
+        font-size: 2em;
+        box-shadow: 3px 3px 3px #ccc;
+      }
+      [hidden] { display: none }
+    </style>
+    <p hidden="[[!isVisible]]">
+      <span on-tap="hide">{{msg}}</span>
+    </p>
+  </template>
+  <script>
+    Polymer({
+      is: 'modal-message',
+
+      properties: {
+        msg: String,
+        isVisible: {
+          type: Boolean,
+          value: true
+        }
+      },
+
+      show: function() {
+        this.isVisible = true;
+      },
+      
+      hide: function() {
+        console.log('aki')
+        this.isVisible = false;
+      }
+
+    });
+  </script>
+</dom-module>

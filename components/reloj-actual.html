@@ -1,0 +1,49 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="hora-actual.html">
+
+<dom-module id="reloj-actual">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      hora-actual {
+        font-size: 2em;
+      }
+      div{
+        padding: 1em;
+        background-color: #99c;
+        display: inline-block;
+      }
+    </style>
+    <div>
+      <hora-actual id="reloj"></hora-actual>
+    </div>
+  </template>
+  <script>
+
+    Polymer({
+      is: 'reloj-actual',
+
+      properties: {
+        retardo: Object
+      },
+
+      ready: function() {
+        this.actualizarReloj();
+      },
+
+      detached: function() {
+        this.cancelAsync(this.retardo);
+      },
+
+      actualizarReloj: function() {
+        console.log('actualizo hora')
+        this.$.reloj.marcaHora();
+        this.retardo = this.async(this.actualizarReloj, 1000);
+      }
+
+    });
+  </script>
+</dom-module>
