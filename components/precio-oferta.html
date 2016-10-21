@@ -1,0 +1,39 @@
+
+<dom-module id="precio-oferta">
+  <template>
+    <style include="estilos-compartidos"></style>
+    <style>
+      :host {
+        display: block;
+      }
+      .precionormal{
+        color: var(--precio-normal, #999);
+      }
+      .preciooferta {
+        color: var(--precio-oferta, red);
+        font-size: 1.5em;
+        font-family: var(--familia-tipografica);
+      }
+      span {
+        @apply(--estilo-caja);
+      }
+    </style>
+    <span class="precionormal">{{precio}} €</span>
+    <span class="preciooferta" on-tap="cambiarEstilo">{{oferta}} €</span>
+  </template>
+  <script>
+    Polymer({
+      is: 'precio-oferta',
+
+      properties: {
+        precio: Number,
+        oferta: Number
+      },
+
+      cambiarEstilo: function() {
+        this.customStyle['--familia-tipografica'] = "courier new";
+        this.updateStyles();
+      }
+    });
+  </script>
+</dom-module>

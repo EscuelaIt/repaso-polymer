@@ -4,17 +4,36 @@
   <meta charset="UTF-8">
   <title>ej 1</title>
 
+  <style>
+    hora-actual{
+      font-size: 2em;
+      color: red;
+      margin-top: 2em;
+    }
+  </style>
   
   <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
+  <script>
+
+    window.Polymer = {
+      dom: 'shadow',
+      lazyRegister: true
+    };
+
+  </script>
   <link rel="import" href="components/hi-polymer.html">
   <link rel="import" href="components/modal-message.html">
   <link rel="import" href="components/hora-actual.html">
   <link rel="import" href="components/reloj-actual.html">
   <link rel="import" href="components/oferta-dia.html">
+  <link rel="import" href="components/nombre-apellidos.html">
   
 </head>
 <body>
+
+  <nombre-apellidos nombre="miguel" apellidos="Alvarez" is-male></nombre-apellidos>
+
   <hi-polymer></hi-polymer>
   <modal-message msg="Hola mensaje" id="modal"></modal-message>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, repudiandae. Repellat ipsam placeat eum dolor natus non unde ullam! Officiis delectus, perspiciatis natus dignissimos pariatur tenetur sed itaque repellat inventore.</p>

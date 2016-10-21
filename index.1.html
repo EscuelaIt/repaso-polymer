@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ej 1</title>
+
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    precio-oferta {
+      --precio-normal: red;
+    } 
+  </style>
+
+  <style is="custom-style">
+    precio-oferta {
+      --precio-normal: blue;
+      --precio-oferta: orange;
+
+      --estilo-caja: {
+        border: 1px solid #f88;
+        background-color: #ddd;
+        padding: 10px;
+      }
+    }
+    oferta-del-dia {
+      --estilo-caja: {
+        border: 1px solid #088;
+        background-color: #0dd;
+        padding: 10px;
+      }
+    }
+  </style>
+  
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+  <script>
+
+    window.Polymer = {
+      dom: 'shady',
+      lazyRegister: true
+    };
+
+  </script>
+
+  <link rel="import" href="components/oferta-dia.html">
+  <link rel="import" href="components/estilos-compartidos.html">
+  
+   
+  <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+
+</head>
+<body>
+  
+  <oferta-del-dia>
+    <div class="titulo">Patatas fritas congeladas</div>
+    <div class="descripcion">La oferta del día consiste en un 2x1 de patatas.</div>
+    <div class="precio">2 euros</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, eum, consectetur. Accusamus iure recusandae perspiciatis libero dolore sunt non porro ad repudiandae, exercitationem beatae autem minima sapiente? Odio, consequuntur, quod!</p>
+  </oferta-del-dia>
+
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel sequi impedit provident itaque aliquam velit cupiditate nemo corporis cumque pariatur, maiores consectetur beatae dolore laboriosam distinctio minus possimus necessitatibus optio.</p>
+  <precio-oferta precio="100" oferta="50"></precio-oferta>
+
+</body>
+</html>

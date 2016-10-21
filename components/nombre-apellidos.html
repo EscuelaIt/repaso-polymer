@@ -1,0 +1,40 @@
+
+<dom-module id="nombre-apellidos">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    {{nombreCompleto}}
+  </template>
+  <script>
+    Polymer({
+      is: 'nombre-apellidos',
+      properties: {
+        nombre: String,
+        apellidos: String,
+        isMale: {
+          type: Boolean,
+          value: false
+        },
+        nombreCompleto: {
+          type: String,
+          computed: 'dameNombreCompleto(nombre, apellidos)'
+        }
+      },
+      
+      dameNombreCompleto: function(n, a) {
+        return this.tratamiento() + ' ' + this.capitalizeFirstLetter(n) + " " + this.capitalizeFirstLetter(a);
+      },
+
+      tratamiento: function(){
+        return (this.isMale) ? 'Mr' : 'Mrs';
+      },
+
+      capitalizeFirstLetter: function (string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+    });
+  </script>
+</dom-module>
