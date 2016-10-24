@@ -1,0 +1,40 @@
+
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+
+
+<dom-module id="set-fav">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .favorito {
+        color: red;
+      }
+    </style>
+    
+    <iron-icon icon="star" id="fav"></iron-icon>
+    
+  </template>
+  <script>
+    Polymer({
+      is: 'set-fav',
+
+      properties: {
+        favorito: {
+          type: Boolean,
+          value: false
+        },
+      },
+
+      listeners: {
+        'tap': 'fetFav'
+      },
+
+      sefFav: function() {
+        this.favorito = !this.favorito
+        this.toggleClass('favorito', this.favorito, this.$.fav)
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,41 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<link rel="import" href="muestra-cadena.html">
+
+
+<dom-module id="test-binding">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    
+    <paper-input label="Escribe algo (binding 1)" value="[[cadena]]"></paper-input>
+    <paper-input label="Escribe algo (binding 2)" value="{{cadena}}"></paper-input>
+    
+    <paper-button raised on-tap="logCadena">Ver la cadena</paper-button>
+    
+    <muestra-cadena cadena="{{cadena}}"></muestra-cadena>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'test-binding',
+      
+      properties: {
+        cadena: {
+          type: String,
+          value: 'test de binding'
+        }
+      },
+
+      logCadena: function() {
+        console.log(this.cadena)
+      }
+    });
+  </script>
+</dom-module>

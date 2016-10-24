@@ -1,0 +1,61 @@
+
+<link rel="import" href="../bower_components/iron-swipeable-container/iron-swipeable-container.html">
+
+<link rel="import" href="swipeable-item.html">
+
+
+<dom-module id="swipe-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .swipe {
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: default;
+        width: 100%;
+      }
+      iron-swipeable-container{
+        width: 300px;
+        border: 1px solid #ddd;
+      }
+    </style>
+    
+    <iron-swipeable-container on-iron-swipe="elementoRetirado" id="id">
+      <swipeable-item
+        icon="inbox"
+        msg="caja de entrada"
+      ></swipeable-item>
+      <swipeable-item
+        icon="star"
+        msg="Favorito ito"
+      ></swipeable-item>
+      <swipeable-item
+        icon="alarm"
+        msg="Ha sonado una alarma!!"
+      ></swipeable-item>
+      <swipeable-item
+        icon="label"
+        msg="Alguien te ha etiquetado"
+      ></swipeable-item>
+    </iron-swipeable-container>
+  </template>
+  <script>
+    Polymer({
+      is: 'swipe-list',
+
+      //listeners: {
+      //  'id.iron-swipe': 'elementoRetirado'
+      //},
+      
+      elementoRetirado: function(evento, data) {
+        console.log(data.target.procesaElementoEliminado());
+        //console.log('quitado', evento.detail.target.msg)
+
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,42 @@
+
+
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="todo-item.html">
+
+
+<dom-module id="todo-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <todo-item label="Pasear al perro"></todo-item>
+    <todo-item label="Comprar comida para el perro"></todo-item>
+    <todo-item label="lo que sea" id="t3"></todo-item>
+
+    
+    <paper-button raised on-tap="completaTarea">cambia tarea 3</paper-button>
+    
+  </template>
+
+  <script>
+    Polymer({
+      is: 'todo-list',
+
+      listeners: {
+        'tarea-completada': 'completada'
+      },
+
+      completada: function(e, data) {
+        console.log('se ha completado una ...', data.label)
+      },
+
+      completaTarea: function() {
+        
+        this.$.t3.cambia()
+      }
+    });
+  </script>
+</dom-module>

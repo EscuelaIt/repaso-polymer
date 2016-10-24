@@ -1,0 +1,47 @@
+
+<dom-module id="muestra-cadena">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .rojo{
+        color: red;
+      }
+      .verde{
+        color: green;
+      }
+    </style>
+    <h1 class$="[[classElemento]]">{{cadena}}</h1>
+    
+    <paper-button raised on-tap="borrar">resetear</paper-button>
+    
+  </template>
+  <script>
+    Polymer({
+      is: 'muestra-cadena',
+      properties: {
+        cadena: {
+          type: String,
+          notify: true,
+          observer: 'esMiguel'
+        },
+        classElemento: {
+          type: String,
+          value: 'verde'
+        }
+      },
+      borrar: function() {
+        this.cadena = '' 
+      },
+      esMiguel: function(c, cOld) {
+        console.log('aki', c, cOld);
+        if(c == 'Miguel'){
+          this.classElemento = 'rojo'
+        } else {
+          this.classElemento = 'verde'          
+        }
+      }
+    });
+  </script>
+</dom-module>
