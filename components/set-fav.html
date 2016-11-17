@@ -12,9 +12,9 @@
         color: red;
       }
     </style>
-    
+
     <iron-icon icon="star" id="fav"></iron-icon>
-    
+
   </template>
   <script>
     Polymer({
@@ -28,10 +28,10 @@
       },
 
       listeners: {
-        'tap': 'fetFav'
+        'tap': 'setFav'
       },
 
-      sefFav: function() {
+      setFav: function() {
         this.favorito = !this.favorito
         this.toggleClass('favorito', this.favorito, this.$.fav)
       }

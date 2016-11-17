@@ -1,0 +1,34 @@
+
+<dom-module id="formulario-con-claves">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <claves-iguales
+      id="elclaves"
+      clave="{{claveForm}}"
+      esta-verificada="{{claveValida}}"
+    ></claves-iguales>
+    
+    <paper-button raised disabled="[[!claveValida]]">Enviar</paper-button>
+    <paper-button raised on-tap="resetea">Reset</paper-button>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'formulario-con-claves',
+
+      properties: {
+        claveForm: String
+      },
+
+      resetea: function() {
+        //this.$.elclaves.clave1 = '';
+        //this.$.elclaves.clave2 = '';
+        this.$.elclaves.reset();
+      }
+    });
+  </script>
+</dom-module>

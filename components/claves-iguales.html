@@ -1,0 +1,62 @@
+
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+
+<dom-module id="claves-iguales">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    
+    <paper-input type="password" label="Escribe tu clave" value="{{clave1}}"></paper-input>
+    <paper-input type="password" label="Repite tu clave" value="{{clave2}}"></paper-input>
+    
+  </template>
+  <script>
+    Polymer({
+      is: 'claves-iguales',
+
+      properties: {
+        clave1: {
+          type: String,
+          value: ''
+        },
+        clave2: {
+          type: String,
+          value: ''
+        },
+        clave: {
+          type: String,
+          notify: true
+        },
+        estaVerificada: {
+          type: Boolean,
+          value: false,
+          notify: true
+        }
+      },
+
+      observers: [
+        'comprobarClaves(clave1, clave2)'
+      ],
+      
+      comprobarClaves: function(c1, c2) {
+        console.log(c1, c2);
+        if(c1 === c2 && c1.length >= 6) {
+          this.clave = c1;
+          this.estaVerificada = true;
+        } else {
+          this.clave = '';
+          this.estaVerificada = false;
+        }
+      },
+
+      reset: function() {
+        this.clave1 = '';
+        this.clave2 = '';
+      }
+    });
+  </script>
+</dom-module>
